@@ -9,7 +9,12 @@ urlpatterns = [
     path('base/', views.BASE, name='base'),
 
     # Login From
-    path('login/', views.LOGIN, name='login'),
+    path('', views.LOGIN, name='login'),
+    path('dologin', views.doLogin, name='doLogin'),
+
+    # Head Of Department Penal Url
+    path('Hod/home', Hod_Views.HOME, name='hod_home'),
+
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
