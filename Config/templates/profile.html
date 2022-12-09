@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-12">
+       <div class="card ">
+          <div class="card-body">
+             <form method ="post" action = "{% url 'profile_update' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                   <div class="col-12 col-xs-1" align="center">
+                      <h5 class="form-title"><span>Profile Update</span></h5>
+                   </div>
+                   {% if messages %}
+                        {% for message in messages %}
+                           {% if message.tags == 'error' %}
+                           <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                              {{message}}
+                              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+
+
+                    {% if messages %}
+                        {% for message in messages %}
+                            {% if message.tags == 'success' %}
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                               {{message}}
+                               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                 <span aria-hidden="true">&times;</span>
+                               </button>
+                             </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                   <div class="col-sm-11">
+                      <div class="form-group">
+                         <label>Profile Picture</label>
+                         <input type="file" class="form-control" name="profile_pic">
+                      </div>
+                   </div>
+                   <div class="col-sm-11">
+                      <div class="form-group">
+                         <label>First Name</label>
+                         <input type="text" class="form-control" name="first_name" value = "{{user.first_name}}">
+                      </div>
+                   </div>
+                   <div class="col-sm-11">
+                      <div class="form-group">
+                         <label>Last Name</label>
+                         <input type="text" class="form-control" name="last_name" value = "{{user.last_name}}">
+                      </div>
+                   </div>
+                   <div class="col-sm-11">
+                    <div class="form-group">
+                       <label>Email</label>
+                       <input type="email" class="form-control" name="email" value = "{{user.email}}" readonly>
+                    </div>
+                 </div>
+                 <div class="col-sm-11">
+                    <div class="form-group">
+                       <label>User Name</label>
+                       <input type="text" class="form-control" name="user_name" value = "{{user.username}}" readonly>
+                    </div>
+                 </div>
+                 <div class="col-sm-11">
+                    <div class="form-group">
+                       <label>Password</label>
+                       <input type="password" class="form-control" name="password" placeholder ="Fil Only if you want to change password">
+                    </div>
+                 </div>
+                   <div class="col-12">
+                      <button type="submit" class="btn btn-primary">Update Profile</button>
+                   </div>
+             </form>
+          </div>
+       </div>
+    </div>
+{% endblock content %}
