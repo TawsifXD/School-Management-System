@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect, HttpResponse
 from app.EmailBackEnd import EmailBackEnd
 from django.contrib.auth import authenticate, logout, login
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 
 def BASE(request):
@@ -29,4 +30,8 @@ def doLogin(request):
         else: 
             messages.error(request, 'Email and password are Invalid!')
             return redirect('login')
-    return None
+
+
+def doLogout(request):
+    logout(request)
+    return redirect('login')

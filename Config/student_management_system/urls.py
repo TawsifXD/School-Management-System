@@ -11,6 +11,7 @@ urlpatterns = [
     # Login From
     path('', views.LOGIN, name='login'),
     path('dologin', views.doLogin, name='doLogin'),
+    path('dologout', views.doLogout, name='Logout'),
 
     # Head Of Department Penal Url
     path('Hod/home', Hod_Views.HOME, name='hod_home'),
