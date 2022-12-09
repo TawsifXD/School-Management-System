@@ -19,7 +19,8 @@ urlpatterns = [
 
     # Head Of Department Penal Url
     path('Hod/home', Hod_Views.HOME, name='hod_home'),
-
+    path('Hod/Student/Add', Hod_Views.ADD_STUDENT, name='add_student'),
+    path('Hod/Student/View',Hod_Views.VIEW_STUDENT, name="view_student" ),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

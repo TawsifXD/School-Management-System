@@ -6,14 +6,13 @@
              <li class="menu-title">
                 <span>Main Menu</span>
                 <li>
-                  <a href="holiday.html"><i class="fas fa-house-user"></i> <span>Dashboard</span></a>
+                  <a href="{% url 'hod_home' %}"><i class="fas fa-house-user"></i> <span>Dashboard</span></a>
                </li>
              <li class="submenu">
                 <a href="#"><i class="fas fa-user-graduate"></i> <span> Students</span> <span class="menu-arrow"></span></a>
                 <ul>
-                   <li><a href="student-details.html">Student View</a></li>
-                   <li><a href="add-student.html">Student Add</a></li>
-                   <li><a href="edit-student.html">Student Edit</a></li>
+                   <li><a href="{% url 'add_student' %}">Add Student</a></li>
+                   <li><a href="{% url 'view_student' %}">View Student</a></li>
                 </ul>
              </li>
              <li class="submenu">
