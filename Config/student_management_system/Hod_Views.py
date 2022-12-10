@@ -396,3 +396,11 @@ def UPDATE_SUBJECT(request):
         subject.save()
         messages.success(request, "Subject Are Successfully Updated")
         return redirect('view_subject')
+
+
+def DELETE_SUBJECT(request,id):
+
+    subject = Subject.objects.filter(id = id)
+    subject.delete()
+    messages.success(request, "Subject Are Successfully Deleted")
+    return redirect('view_subject')
