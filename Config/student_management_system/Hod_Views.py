@@ -323,14 +323,6 @@ def DELETE_STAFF(request,id):
 
 @login_required(login_url='/')
 def ADD_SUBJECT(request):
-
-    # if request.method == "POST":
-    #     add_subject = request.POST.get('add_subject')
-
-    #     course = Course(
-    #         name = add_subject,
-    #     )
-    #     course.save()
-    #     messages.success(request,'Course Are Successfully Created ')
+    
 
     return render(request,'Hod/add_subject.html')
