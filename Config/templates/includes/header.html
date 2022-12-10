@@ -4,7 +4,7 @@
        <a href="{% url 'hod_home' %}" class="logo">
        <img src="{% static 'assets/img/logo.png' %}" alt="Logo">
        </a>
-       <a href="index.html" class="logo logo-small">
+       <a href="{% url 'hod_home' %}" class="logo logo-small">
        <img src="{% static 'assets/img/logo-small.png' %}" alt="Logo" width="30" height="30">
        </a>
     </div>
@@ -91,16 +91,16 @@
        <li class="nav-item dropdown has-arrow">
           <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
             {% if user.profile_pic == "" %}
-            <span class="user-img"><img class="rounded-circle" src="{% static 'assets/img/noimg.jpg' %}" width="31" alt="Ryan Taylor"></span>
+            <span class="user-img"><img class="rounded-circle" src="{% static 'assets/img/noimg.jpg' %}" width="30" height="35" alt="Ryan Taylor"></span>
             {% else %}
-          <span class="user-img"><img class="rounded-circle" src="/{{user.profile_pic}}" width="31" alt="Ryan Taylor"></span>
+          <span class="user-img"><img class="rounded-circle" src="/{{user.profile_pic}}" width="30" height="35" alt="Ryan Taylor"></span>
             {% endif %}
          </a>
           <div class="dropdown-menu">
              <div class="user-header">
                 <div class="avatar avatar-sm">
                   {% if user.profile_pic == "" %}
-                  <span class="user-img"><img class="rounded-circle" src="{% static 'assets/img/noimg.jpg' %}" width="31" alt="Ryan Taylor"></span>
+                  <span class="user-img"><img class="rounded-circle" src="{% static 'assets/img/noimg.jpg' %}" width="30" height="35" alt="Ryan Taylor"></span>
                   {% else %}
                    <img src="/{{user.profile_pic}}" alt="User Image" class="avatar-img rounded-circle">
                    {% endif %}

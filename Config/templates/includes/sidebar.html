@@ -18,25 +18,22 @@
              <li class="submenu">
                 <a href="#"><i class="fas fa-chalkboard-teacher"></i> <span> Staff</span> <span class="menu-arrow"></span></a>
                 <ul>
-                   <li><a href="teacher-details.html">Staff View</a></li>
-                   <li><a href="add-teacher.html">Staff Add</a></li>
-                   <li><a href="edit-teacher.html">Staff Edit</a></li>
+                   <li><a href="{% url 'add_staff' %}">Add Staff</a></li>
+                   <li><a href="{% url 'view_staff' %}">View Staff</a></li>
                 </ul>
              </li>
              <li class="submenu">
-                <a href="#"><i class="fa fa-book"></i> <span> Course</span> <span class="menu-arrow"></span></a>
+                <a href="#"><i class="fa fa-graduation-cap"></i> <span> Course</span> <span class="menu-arrow"></span></a>
                 <ul>
-                   <li><a href="departments.html">Course View</a></li>
-                   <li><a href="add-department.html">Course Add</a></li>
-                   <li><a href="edit-department.html">Course Edit</a></li>
+                   <li><a href="{% url 'add_course' %}">Add Course</a></li>
+                   <li><a href="{% url 'view_course' %}">View Course</a></li>
                 </ul>
              </li>
              <li class="submenu">
-                <a href="#"><i class="fas fa-clock"></i> <span> Session</span> <span class="menu-arrow"></span></a>
+                <a href="#"><i class="fa fa-book-open"></i> <span> Subject</span> <span class="menu-arrow"></span></a>
                 <ul>
-                   <li><a href="subjects.html">Session View</a></li>
-                   <li><a href="add-subject.html">Session Add</a></li>
-                   <li><a href="edit-subject.html">Session Edit</a></li>
+                   <li><a href="{% url 'add_subject' %}"> Add Subject</a></li>
+                   <li><a href="#">View Subject</a></li>
                 </ul>
              </li>
              <li>

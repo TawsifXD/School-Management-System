@@ -12,6 +12,8 @@
       <link rel="stylesheet" href="{% static 'assets/plugins/fontawesome/css/fontawesome.min.css' %}">
       <link rel="stylesheet" href="{% static 'assets/plugins/fontawesome/css/all.min.css' %}">
       <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+      <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+      <link rel="stylesheet" href="{% static 'assets/plugins/datatables/datatables.min.css' %}">
    </head>
    <body>
     <div class="main-wrapper">
@@ -33,6 +35,14 @@
       <script src="{% static 'assets/plugins/apexchart/apexcharts.min.js' %}"></script>
       <script src="{% static 'assets/plugins/apexchart/chart-data.js' %}"></script>
       <script src="{% static 'assets/js/script.js' %}"></script>
+      
+      <script src="{% static 'assets/plugins/datatables/datatables.min.js'%}"></script>
+      <script src="https://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
+      <script type="text/javascript">
+      $(document).ready(function () {
+      $('#table_id').dataTable();
+      });
+      </script>
    </body>
    
 </html>

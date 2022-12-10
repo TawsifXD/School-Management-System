@@ -30,6 +30,8 @@ class Session_Year(models.Model):
     def __str__(self):
         return self.session_stats + " to " + self.session_end
 
+# Student Model -------------------
+
 class Student(models.Model):
     admin = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
     address = models.TextField()
@@ -41,3 +43,16 @@ class Student(models.Model):
 
     def __str__(self):
         return self.admin.first_name + " " + self.admin.last_name
+
+
+# Staff Model --------------------------
+
+class Staff(models.Model):
+    admin = models.OneToOneField(CustomUser,on_delete=models.CASCADE)
+    address = models.TextField()
+    gender = models.CharField(max_length=100)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.admin.username
