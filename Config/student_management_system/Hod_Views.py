@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
-from app.models import Course, Session_Year, CustomUser, Student, Staff
+from app.models import Course, Session_Year, CustomUser, Student, Staff, Subject
 from django.contrib import messages
 
 # ----------------------------------Login Filed ------------------------------
@@ -324,5 +324,75 @@ def DELETE_STAFF(request,id):
 @login_required(login_url='/')
 def ADD_SUBJECT(request):
     
+    course = Course.objects.all()
+    staff = Staff.objects.all()
 
-    return render(request,'Hod/add_subject.html')
+    if request.method == "POST":
+        subject_name = request.POST.get('subject_name')
+        course_id = request.POST.get('course_id')
+        staff_id = request.POST.get('staff_id')
+
+        course = Course.objects.get(id = course_id)
+        staff = Staff.objects.get(id = staff_id)
+
+        subject = Subject(
+            name = subject_name,
+            course = course,
+            staff = staff,
+        )
+        subject.save()
+        messages.success(request, "Subject Are Successfully Added")
+        return redirect('view_subject')
+
+    context = {
+        'course': course,
+        'staff': staff,
+    }
+
+    return render(request,'Hod/add_subject.html', context)
+
+@login_required(login_url='/')
+def VIEW_SUBJECT(request):
+    subject = Subject.objects.all()
+
+    context = {
+        'subject': subject,
+    }
+    return render(request, 'Hod/view_subject.html', context)
+
+
+@login_required(login_url='/')
+def EDIT_SUBJECT(request,id):
+    subject = Subject.objects.get(id = id)
+    course = Course.objects.all()
+    staff = Staff.objects.all()
+
+    context = {
+        'subject': subject,
+        'course': course,
+        'staff': staff,
+    }
+    return render(request, 'Hod/edit_subject.html', context)
+
+
+@login_required(login_url='/')
+def UPDATE_SUBJECT(request):
+    if request.method == "POST":
+        subject_id = request.POST.get('subject_id')
+        subject_name = request.POST.get('subject_name')
+        course_id = request.POST.get('course_id')
+        staff_id = request.POST.get('staff_id')
+
+        course = Course.objects.get(id = course_id)
+        staff = Staff.objects.get(id = staff_id)
+
+        subject = Subject(
+            id = subject_id,
+            name = subject_name,
+            course = course,
+            staff = staff,
+        )
+
+        subject.save()
+        messages.success(request, "Subject Are Successfully Updated")
+        return redirect('view_subject')
