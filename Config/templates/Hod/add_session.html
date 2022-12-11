@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="content container-fluid">
+    <div class="page-header">
+       <div class="row align-items-center">
+          <div class="col">
+             <h3 class="page-title">Session</h3>
+             <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="subjects.html">Subject</a></li>
+                <li class="breadcrumb-item active">Add Session</li>
+             </ul>
+          </div>
+       </div>
+    </div>
+    {% include 'includes/messages.html' %}
+    <div class="row">
+       <div class="col-sm-12">
+          <div class="card">
+             <div class="card-body">
+                <form method="post" action="{% url 'add_session' %}">
+                    {% csrf_token %}
+                   <div class="row">
+                      <div class="col-12">
+                         <h5 class="form-title"><span>Session Information</span></h5>
+                      </div>
+                      <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                            <label>Session Year Start</label>
+                            <div>
+                               <input type="date" class="form-control" name="session_year_start" required>
+                            </div>
+                         </div>
+                      </div>
+                      <div class="col-12 col-sm-6">
+                         <div class="form-group">
+                            <div class="form-group">
+                                <label>Session Year End</label>
+                                <div>
+                                   <input type="date" class="form-control" name="session_year_end" required>
+                                </div>
+                             </div>
+                         </div>
+                      </div>
+                      
+                      <div class="col-12">
+                         <button type="submit" class="btn btn-primary">Add Session</button>
+                      </div>
+                   </div>
+                </form>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+{% endblock content %}

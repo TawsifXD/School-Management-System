@@ -5,7 +5,7 @@ from django.conf.urls.static import static
 from .import views, Staff_Views, Hod_Views, Student_Views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin', admin.site.urls),
     path('base/', views.BASE, name='base'),
 
     # Login From
@@ -43,6 +43,21 @@ urlpatterns = [
     path('Hod/Subject/Update',Hod_Views.UPDATE_SUBJECT,name='update_subject'),
     path('Hod/Subject/Delete/<str:id>',Hod_Views.DELETE_SUBJECT,name='delete_subject'),
 
+    path('Hod/Session/Add',Hod_Views.ADD_SESSION,name='add_session'),
+    path('Hod/Session/View',Hod_Views.VIEW_SESSION,name='view_session'),
+    path('Hod/Session/Edit/<str:id>',Hod_Views.EDIT_SESSION,name='edit_session'),
+    path('Hod/Session/Update',Hod_Views.UPDATE_SESSION,name='update_session'),
+    path('Hod/Session/Delete/<str:id>',Hod_Views.DELETE_SESSION,name='delete_session'),
+
+    path('Hod/Staff/Send_Notification',Hod_Views.STAFF_SEND_NOTIFICATION, name='staff_send_notification'),
+    path('Hod/Staff/Save_Notification',Hod_Views.SAVE_STAFF_NOTIFICATION, name='save_staff_notification'),
+
+    # --------------------------Staff Penal Url --------------------------------
+
+    path('Staff/home', Staff_Views.HOME, name='staff_home'),
+
+    path('Staff/Notifications', Staff_Views.NOTIFICATIONS, name='notifications'),
+    path('Staff/Mark_as_done/<str:status>', Staff_Views.STAFF_NOTIFICATION_DONE, name='staff_notification_done'),
 
 
 
