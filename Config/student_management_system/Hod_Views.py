@@ -1,7 +1,7 @@
+from django.contrib import messages
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
-from app.models import Course, Session_Year, CustomUser, Student, Staff, Subject,Staff_Notification
-from django.contrib import messages
+from app.models import Course, Session_Year, CustomUser, Student, Staff, Subject,Staff_Notification, Staff_leave
 
 # ----------------------------------Login Filed ------------------------------
 
@@ -511,3 +511,31 @@ def SAVE_STAFF_NOTIFICATION(request):
         notification.save()
         messages.success(request,"Notification Are Successfully Send")
         return redirect('staff_send_notification')
+
+
+@login_required(login_url='/')
+def STAFF_LEAVE_VIEW(request):
+    staff_leave = Staff_leave.objects.all()
+
+    context = {
+        'staff_leave': staff_leave,
+    }
+    return render(request,'Hod/staff_leave.html', context)
+
+
+@login_required(login_url='/')
+def STAFF_APPROVE_LEAVE(request,id):
+    leave = Staff_leave.objects.get(id = id)
+    leave.status = 1
+    leave.save()
+    
+    return redirect('staff_leave_view')
+
+    
+@login_required(login_url='/')
+def STAFF_DISAPPROVE_LEAVE(request,id):
+    leave = Staff_leave.objects.get(id = id)
+    leave.status = 2
+    leave.save()
+    
+    return redirect('staff_leave_view')

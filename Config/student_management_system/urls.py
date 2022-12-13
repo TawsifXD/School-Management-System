@@ -52,6 +52,13 @@ urlpatterns = [
     path('Hod/Staff/Send_Notification',Hod_Views.STAFF_SEND_NOTIFICATION, name='staff_send_notification'),
     path('Hod/Staff/Save_Notification',Hod_Views.SAVE_STAFF_NOTIFICATION, name='save_staff_notification'),
 
+    path('Hod/Staff/Leave_view',Hod_Views.STAFF_LEAVE_VIEW,name='staff_leave_view'),
+    path('Hod/Staff/Approve_leave/<str:id>',Hod_Views.STAFF_APPROVE_LEAVE,name='staff_approve_leave'),
+    path('Hod/Staff/Disapprove_leave/<str:id>',Hod_Views.STAFF_DISAPPROVE_LEAVE,name='staff_disapprove_leave'),
+
+
+
+
     # --------------------------Staff Penal Url --------------------------------
 
     path('Staff/home', Staff_Views.HOME, name='staff_home'),
@@ -59,6 +66,11 @@ urlpatterns = [
     path('Staff/Notifications', Staff_Views.NOTIFICATIONS, name='notifications'),
     path('Staff/Mark_as_done/<str:status>', Staff_Views.STAFF_NOTIFICATION_DONE, name='staff_notification_done'),
 
+    path('Staff/Apply_leave', Staff_Views.STAFF_APPLY_LEAVE, name='staff_apply_leave'),
+    path('Staff/Apply_leave_save', Staff_Views.STAFF_APPLY_LEAVE_SAVE, name='staff_apply_leave_save'),
+
+    path('Staff/Feedback', Staff_Views.STAFF_FEEDBACK, name='staff_feedback'),
+    path('Staff/Feedback/Save', Staff_Views.STAFF_FEEDBACK_SAVE, name='staff_feedback_save'),
 
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

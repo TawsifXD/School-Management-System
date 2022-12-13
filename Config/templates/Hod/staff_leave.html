@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="content container-fluid">
+    <div class="page-header">
+       <div class="row align-items-center">
+          <div class="col">
+             <h3 class="page-title">Staff View</h3>
+             <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'hod_home' %}">Dashboard</a></li>
+                <li class="breadcrumb-item active">Staff View</li>
+             </ul>
+          </div>
+          
+          <div class="col-auto text-right float-right ml-auto">
+             <a href="{% url 'add_course' %}" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+          </div>
+       </div>
+    </div>
+    {% include 'includes/messages.html' %}
+    <div class="row">
+       <div class="col-sm-12">
+          <div class="card card-table">
+             <div class="card-body">
+                <div class="table-responsive">
+                   <table id="table_id" class="table table-hover table-center mb-0 datatable">
+                      <thead>
+                         <tr>
+                            <th>ID</th>
+                            <th>Staff Name</th>
+                            <th>Leave Date</th>
+                           <th>Message</th>
+                            <th class="text-right">Action</th>
+                         </tr>
+                      </thead>
+                      <tbody>
+                        {% for i in staff_leave %}
+                         <tr>
+                            <td>{{i.id}}</td>
+                            <td>{{i.staff_id.admin.first_name}}{{i.staff_id.admin.last_name}}</td>
+                            <td>{{i.date}}</td>
+                           <td>{{i.message}}</td>
+                            <td class="text-right">
+                               <div class="actions">
+                                {% if i.status == 0 %}
+                                  <a href="{% url 'staff_approve_leave' i.id %}" class="btn btn-success"> Approve </a>
+                                  <a href="{% url 'staff_disapprove_leave' i.id %}" class="btn btn-danger"> Disapprove </a>
+                                {% elif i.status == 1 %}
+
+                                <button class="btn btn-success" disabled="disabled"> Approve </button>
+
+                                {% else %}
+                                <button class="btn btn-danger" disabled="disabled"> Disapprove </button>
+                                {% endif %}
+
+
+                               </div>
+                            </td>
+                         </tr>
+                         {% endfor %}
+                      </tbody>
+                   </table>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+{% endblock content %}
