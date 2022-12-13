@@ -54,7 +54,7 @@
                <a href="holiday.html"><i class="fa fa-calendar"></i> <span>View Attendens</span></a>
             </li>
             <li>
-               <a href="holiday.html"><i class="fa fa-comments"></i> <span>Staff Fedback</span></a>
+               <a href="{% url 'staff_feedback_reply' %}"><i class="fa fa-comments"></i> <span>Staff Fedback</span></a>
             </li>
             <li>
                <a href="holiday.html"><i class="fa fa-comments"></i> <span>Student Fedback</span></a>
@@ -74,20 +74,20 @@
          <ul>
             <li class="menu-title">
                <span>Main Menu</span>
-               <li class={% active_link 'hod_home' 'active'%}>
+               <li class={% active_link '' 'active'%}>
                  <a href="{% url 'hod_home' %}"><i class="fas fa-house-user"></i> <span>Dashboard</span></a>
               </li>
             </li>
             
-               <li class={% active_link 'hod_home' 'active'%}>
-                 <a href="{% url 'hod_home' %}"><i class="fas fa-calendar-alt"></i> <span>Take Attendens</span></a>
+               <li class={% active_link '' 'active'%}>
+                 <a href="{% url 'hod_home' %}"><i class="fas fa-calendar"></i> <span>Take Attendens</span></a>
               </li>
 
-               <li class={% active_link 'hod_home' 'active'%}>
+               <li class={% active_link '' 'active'%}>
                  <a href="{% url 'hod_home' %}"><i class="fas fa-calendar-alt"></i> <span>View / Update Attendens</span></a>
               </li>
             
-               <li class={% active_link 'hod_home' 'active'%}>
+               <li class={% active_link '' 'active'%}>
                  <a href="{% url 'hod_home' %}"><i class="fas fa-poll-h"></i> <span>Add Result</span></a>
                </li>
             
@@ -109,6 +109,40 @@
             
          </ul>
          {% else %}
+
+         <ul>
+            <li class="menu-title">
+               <span>Main Menu</span>
+               <li class={% active_link 'student_home' 'active'%}>
+                 <a href="{% url 'student_home' %}"><i class="fas fa-house-user"></i> <span>Dashboard</span></a>
+              </li>
+            </li>
+
+               <li class={% active_link '' 'active'%}>
+                  <a href="{% url 'hod_home' %}"><i class="fas fa-calendar-alt"></i> <span>View / Update Attendens</span></a>
+               </li>
+
+               <li class={% active_link '' 'active'%}>
+                 <a href=""><i class="fas fa-poll"></i> <span>View Result</span></a>
+              </li>
+
+               <li class={% active_link '' 'active'%}>
+                 <a href=""><i class="fas fa-envelope-open"></i> <span>Apply For Leave</span></a>
+              </li>
+            
+               <li class={% active_link '' 'active'%}>
+                 <a href=""><i class="fas fa-comments"></i> <span>Send Feedback </span></a>
+               </li>
+            
+               <li class={% active_link '' 'active'%}>
+                 <a href=""><i class="fas fa-bell"></i> <span>Notification</span></a>
+              </li>
+
+               <li>
+                  <a href="{% url 'Logout' %}"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
+               </li>
+            
+         </ul>
 
          {% endif %}
        </div>

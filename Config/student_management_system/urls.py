@@ -56,8 +56,8 @@ urlpatterns = [
     path('Hod/Staff/Approve_leave/<str:id>',Hod_Views.STAFF_APPROVE_LEAVE,name='staff_approve_leave'),
     path('Hod/Staff/Disapprove_leave/<str:id>',Hod_Views.STAFF_DISAPPROVE_LEAVE,name='staff_disapprove_leave'),
 
-
-
+    path('Hod/Staff/Feedback',Hod_Views.STAFF_FEEDBACK,name='staff_feedback_reply'),
+    path('Hod/Staff/Feedback/ Save',Hod_Views.STAFF_FEEDBACK_SAVE,name='staff_feedback_reply_save'),
 
     # --------------------------Staff Penal Url --------------------------------
 
@@ -71,6 +71,13 @@ urlpatterns = [
 
     path('Staff/Feedback', Staff_Views.STAFF_FEEDBACK, name='staff_feedback'),
     path('Staff/Feedback/Save', Staff_Views.STAFF_FEEDBACK_SAVE, name='staff_feedback_save'),
+
+ # --------------------------Student Penal Url --------------------------------
+
+    path('Student/Home', Student_Views.HOME, name='student_home')
+
+
+
 
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
