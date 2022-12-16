@@ -5,16 +5,16 @@
     <div class="page-header">
        <div class="row align-items-center">
           <div class="col">
-             <h3 class="page-title">Staff Feedback</h3>
+             <h3 class="page-title">Student Feedback</h3>
              <ul class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{% url 'hod_home' %}">Dashboard</a></li>
-                <li class="breadcrumb-item active">Staff Feedback</li>
+                <li class="breadcrumb-item active">Student Feedback</li>
              </ul>
           </div>
           <!-- Button trigger modal -->
           <div class="col-auto text-right float-right ml-auto">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                    View All Staff Feedback
+                    View All Student Feedback
                 </button>
           </div>
        </div>
@@ -29,7 +29,7 @@
                       <thead>
                          <tr>
                             <th>ID</th>
-                            <th>Staff Name</th>
+                            <th>Student Name</th>
                             <th>Feedback</th>
                             <th>Date</th>
                             <th class="text-right">Action</th>
@@ -41,8 +41,8 @@
                             <td>{{i.id}}</td>
                             <td>
                                <h2 class="table-avatar">
-                                  <a href="student-details.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="/{{i.staff_id.admin.profile_pic}}" alt="User Image"></a>
-                                  <a href="student-details.html">{{i.staff_id.admin.first_name}} {{i.staff_id.admin.last_name}}</a>
+                                  <a href="student-details.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="/{{i.student_id.admin.profile_pic}}" alt="User Image"></a>
+                                  <a href="student-details.html">{{i.student_id.admin.first_name}} {{i.student_id.admin.last_name}}</a>
                                </h2>
                             </td>
                             <td>{{i.feedback}}</td>
@@ -83,6 +83,7 @@
                         <table id="table_id" class="table table-hover table-center mb-0">
                            <thead>
                               <tr>
+                                 <th>ID</th>
                                  <th >Feedback</th>
                                  <th class="text-right">Reply</th>
                               </tr>
@@ -90,6 +91,7 @@
                            <tbody>
                              {% for i in feedback_history %}
                               <tr>
+                                 <td>{{i.id}}</td>
                                  <td>{{i.feedback}}</td>
                                  {% if i.status == 0 %}
                                  <td class="text-right"><span class="badge badge-danger">No Reply</span></td>
@@ -119,13 +121,13 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="sendnotification">Reply To {{i.staff_id.admin.first_name}}&nbsp;{{i.staff_id.admin.last_name}}</h5>
+          <h5 class="modal-title" id="sendnotification">Reply To {{i.student_id.admin.first_name}}&nbsp;{{i.student_id.admin.last_name}}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-            <form method="post" action="{% url 'staff_feedback_reply_save' %}">
+            <form method="post" action="{% url 'reply_student_feedback' %}">
               {% csrf_token %}
                 <div class="form-group">
                   <input type="text" class="form-control" name = "feedback_id" value = "{{i.id}}" hidden>

@@ -5,10 +5,10 @@
     <div class="page-header">
        <div class="row align-items-center">
           <div class="col">
-             <h3 class="page-title">Staff</h3>
+             <h3 class="page-title">Staff Notification</h3>
              <ul class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{% url 'hod_home' %}">Dashboard</a></li>
-                <li class="breadcrumb-item active">Staff</li>
+                <li class="breadcrumb-item active">Staff Notification</li>
              </ul>
           </div>
           <!-- Button trigger modal -->
@@ -81,8 +81,8 @@
                         <table id="table_id" class="table table-hover table-center mb-0">
                            <thead>
                               <tr>
-                                 <th style ="witdh:60%">Message</th>
-                                 <th style ="witdh:30%" class="text-right">Status</th>
+                                 <th>Message</th>
+                                 <th class="text-right">Status</th>
                               </tr>
                            </thead>
                            <tbody>
@@ -90,9 +90,9 @@
                               <tr>
                                  <td>{{i.message}}</td>
                                  {% if i.status == 0 %}
-                                 <td><span class="badge badge-danger">Unread The Message</span></td>
+                                 <td class="text-right"><span class="badge badge-danger">Unread The Message</span></td>
                                  {% else %}
-                                 <td><span class="badge badge-success">Read The Message</span></td>
+                                 <td class="text-right"><span class="badge badge-success">Read The Message</span></td>
                                  {% endif %}
                               </tr>
                               {% endfor %}

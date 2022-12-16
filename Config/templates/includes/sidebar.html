@@ -34,7 +34,7 @@
                 <a href="#"><i class="fa fa-book-open"></i> <span> Subject</span> <span class="menu-arrow"></span></a>
                 <ul>
                    <li><a href="{% url 'add_subject' %}"> Add Subject</a></li>
-                   <li><a href="{% url 'add_subject' %}">View Subject</a></li>
+                   <li><a href="{% url 'view_subject' %}">View Subject</a></li>
                 </ul>
              </li>
              <li class="submenu {% active_link 'add_session' 'active'%} {% active_link 'view_session' 'active'%}">
@@ -48,7 +48,7 @@
                <a href="{% url 'staff_send_notification' %}"><i class="fa fa-bell"></i><span>Sent Staff Notification</span></a>
             </li>
             <li>
-               <a href="holiday.html"><i class="fa fa-bell"></i><span>Sent Student Notification</span></a>
+               <a href="{% url 'student_send_notification' %}"><i class="fa fa-bell"></i><span>Sent Student Notification</span></a>
             </li>
             <li>
                <a href="holiday.html"><i class="fa fa-calendar"></i> <span>View Attendens</span></a>
@@ -57,13 +57,13 @@
                <a href="{% url 'staff_feedback_reply' %}"><i class="fa fa-comments"></i> <span>Staff Fedback</span></a>
             </li>
             <li>
-               <a href="holiday.html"><i class="fa fa-comments"></i> <span>Student Fedback</span></a>
+               <a href="{% url 'student_feedback_reply' %}"><i class="fa fa-comments"></i> <span>Student Fedback</span></a>
             </li>
             <li>
                <a href="{% url 'staff_leave_view' %}"><i class="fas fa-envelope"></i> <span>Staff Leave</span></a>
             </li>
             <li>
-               <a href="holiday.html"><i class="fas fa-envelope"></i> <span>Student Leave</span></a>
+               <a href="{% url 'student_leave_view' %}"><i class="fas fa-envelope"></i> <span>Student Leave</span></a>
             </li>
             <li>
                <a href="{% url 'Logout' %}"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
@@ -79,8 +79,8 @@
               </li>
             </li>
             
-               <li class={% active_link '' 'active'%}>
-                 <a href="{% url 'hod_home' %}"><i class="fas fa-calendar"></i> <span>Take Attendens</span></a>
+               <li class={% active_link 'staff_take_attendance' 'active'%}>
+                 <a href="{% url 'staff_take_attendance' %}"><i class="fas fa-calendar"></i> <span>Take Attendens</span></a>
               </li>
 
                <li class={% active_link '' 'active'%}>
@@ -126,16 +126,16 @@
                  <a href=""><i class="fas fa-poll"></i> <span>View Result</span></a>
               </li>
 
-               <li class={% active_link '' 'active'%}>
-                 <a href=""><i class="fas fa-envelope-open"></i> <span>Apply For Leave</span></a>
+               <li class={% active_link 'student_apply_leave' 'active'%}>
+                 <a href="{% url 'student_apply_leave' %}"><i class="fas fa-envelope-open"></i> <span>Apply For Leave</span></a>
               </li>
             
-               <li class={% active_link '' 'active'%}>
-                 <a href=""><i class="fas fa-comments"></i> <span>Send Feedback </span></a>
+               <li class={% active_link 'student_feedback' 'active'%}>
+                 <a href="{% url 'student_feedback' %}"><i class="fas fa-comments"></i> <span>Send Feedback </span></a>
                </li>
             
-               <li class={% active_link '' 'active'%}>
-                 <a href=""><i class="fas fa-bell"></i> <span>Notification</span></a>
+               <li class={% active_link 'notifications' 'active'%}>
+                 <a href="{% url 'notifications' %}"><i class="fas fa-bell"></i> <span>Notification</span></a>
               </li>
 
                <li>

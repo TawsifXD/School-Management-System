@@ -4,10 +4,10 @@
     <div class="page-header">
        <div class="row align-items-center">
           <div class="col">
-             <h3 class="page-title">Staff Notification</h3>
+             <h3 class="page-title">Student View</h3>
              <ul class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{% url 'hod_home' %}">Dashboard</a></li>
-                <li class="breadcrumb-item active">Staff Notification</li>
+                <li class="breadcrumb-item active">Student View</li>
              </ul>
           </div>
           
@@ -25,23 +25,35 @@
                    <table id="table_id" class="table table-hover table-center mb-0 datatable">
                       <thead>
                          <tr>
-                            <th>Message</th>
+                            <th>ID</th>
+                            <th>Student Name</th>
+                            <th>Leave Date</th>
+                           <th>Message</th>
                             <th class="text-right">Action</th>
                          </tr>
                       </thead>
                       <tbody>
-                        {% for i in notification %}
+                        {% for i in student_leave %}
                          <tr>
-                            <td>{{i.message}}</td>
-
+                            <td>{{i.id}}</td>
+                            <td>{{i.student_id.admin.first_name}}{{i.student_id.admin.last_name}}</td>
+                            <td>{{i.date}}</td>
+                           <td>{{i.message}}</td>
                             <td class="text-right">
                                <div class="actions">
                                 {% if i.status == 0 %}
-                                <a href="{% url 'staff_notification_done' status=i.id %}" class="btn btn-danger">Mark As Done</a>
+                                  <a href="{% url 'student_approve_leave' i.id %}" class="btn btn-success"> Approve </a>
+                                  <a href="{% url 'student_disapprove_leave' i.id %}" class="btn btn-danger"> Disapprove </a>
+                                {% elif i.status == 1 %}
+
+                                <button class="btn btn-success" disabled="disabled"> Approve </button>
+
                                 {% else %}
-                                <button class="btn btn-danger" disabled = "disabled">Mark As Done</button>
+                                <button class="btn btn-danger" disabled="disabled"> Disapprove </button>
                                 {% endif %}
-                            </div>
+
+
+                               </div>
                             </td>
                          </tr>
                          {% endfor %}

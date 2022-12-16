@@ -4,10 +4,10 @@
     <div class="page-header">
        <div class="row align-items-center">
           <div class="col">
-             <h3 class="page-title">Staff Notification</h3>
+             <h3 class="page-title">Student Notification</h3>
              <ul class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{% url 'hod_home' %}">Dashboard</a></li>
-                <li class="breadcrumb-item active">Staff Notification</li>
+                <li class="breadcrumb-item active">Student Notification</li>
              </ul>
           </div>
           
@@ -37,7 +37,7 @@
                             <td class="text-right">
                                <div class="actions">
                                 {% if i.status == 0 %}
-                                <a href="{% url 'staff_notification_done' status=i.id %}" class="btn btn-danger">Mark As Done</a>
+                                <a href="{% url 'student_notification_done' status=i.id %}" class="btn btn-danger">Mark As Done</a>
                                 {% else %}
                                 <button class="btn btn-danger" disabled = "disabled">Mark As Done</button>
                                 {% endif %}

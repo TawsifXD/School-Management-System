@@ -5,16 +5,16 @@
     <div class="page-header">
        <div class="row align-items-center">
           <div class="col">
-             <h3 class="page-title">Staff Feedback</h3>
+             <h3 class="page-title">Student Notification</h3>
              <ul class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{% url 'hod_home' %}">Dashboard</a></li>
-                <li class="breadcrumb-item active">Staff Feedback</li>
+                <li class="breadcrumb-item active">Student Notification</li>
              </ul>
           </div>
           <!-- Button trigger modal -->
           <div class="col-auto text-right float-right ml-auto">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                    View All Staff Feedback
+                    View All Notification
                 </button>
           </div>
        </div>
@@ -29,27 +29,25 @@
                       <thead>
                          <tr>
                             <th>ID</th>
-                            <th>Staff Name</th>
-                            <th>Feedback</th>
-                            <th>Date</th>
+                            <th>Name</th>
+                            <th>Email</th>
                             <th class="text-right">Action</th>
                          </tr>
                       </thead>
                       <tbody>
-                        {% for i in feedback %}
+                        {% for i in student %}
                          <tr>
                             <td>{{i.id}}</td>
                             <td>
                                <h2 class="table-avatar">
-                                  <a href="student-details.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="/{{i.staff_id.admin.profile_pic}}" alt="User Image"></a>
-                                  <a href="student-details.html">{{i.staff_id.admin.first_name}} {{i.staff_id.admin.last_name}}</a>
+                                  <a href="student-details.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="/{{i.admin.profile_pic}}" alt="User Image"></a>
+                                  <a href="student-details.html">{{i.admin.first_name}} {{i.admin.last_name}}</a>
                                </h2>
                             </td>
-                            <td>{{i.feedback}}</td>
-                            <td>{{i.created_at}}</td>
+                            <td>{{i.admin.email}}</td>
                             <td class="text-right">
                                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#sendnotification-{{forloop.counter}}">
-                                    Reply
+                                    Send Notification
                                 </button>
                             </td>
                          </tr>
@@ -83,18 +81,18 @@
                         <table id="table_id" class="table table-hover table-center mb-0">
                            <thead>
                               <tr>
-                                 <th >Feedback</th>
-                                 <th class="text-right">Reply</th>
+                                 <th >Message</th>
+                                 <th class="text-right">Status</th>
                               </tr>
                            </thead>
                            <tbody>
-                             {% for i in feedback_history %}
+                             {% for i in notification %}
                               <tr>
-                                 <td>{{i.feedback}}</td>
+                                 <td>{{i.message}}</td>
                                  {% if i.status == 0 %}
-                                 <td class="text-right"><span class="badge badge-danger">No Reply</span></td>
+                                 <td class="text-right"><span class="badge badge-danger">Unread The Message</span></td>
                                  {% else %}
-                                 <td class="text-right">{{i.feedback_reply}}</td>
+                                 <td class="text-right"><span class="badge badge-success">Read The Message</span></td>
                                  {% endif %}
                               </tr>
                               {% endfor %}
@@ -114,24 +112,24 @@
   </div>
 
   <!-- Modal2 -->
-  {% for i in feedback %}
+  {% for i in student %}
   <div class="modal fade" id="sendnotification-{{forloop.counter}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="sendnotification">Reply To {{i.staff_id.admin.first_name}}&nbsp;{{i.staff_id.admin.last_name}}</h5>
+          <h5 class="modal-title" id="sendnotification">Send Message To {{i.admin.first_name}}&nbsp;{{i.admin.last_name}}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-            <form method="post" action="{% url 'staff_feedback_reply_save' %}">
+            <form method="post" action="{% url 'save_student_notification' %}">
               {% csrf_token %}
                 <div class="form-group">
-                  <input type="text" class="form-control" name = "feedback_id" value = "{{i.id}}" hidden>
-                  <textarea rows="5" class="form-control" name = "feedback_reply"> </textarea>
+                  <input type="text" class="form-control" name = "message">
+                  <input type="text" class="form-control" name = "student_id" value ="{{i.admin.id}}" hidden>
                 </div>
-                <button type="submit" class="btn btn-primary">Send Reply</button>
+                <button type="submit" class="btn btn-primary">Send Notification</button>
               </form>
         </div>
         <div class="modal-footer">

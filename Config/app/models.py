@@ -79,6 +79,16 @@ class Staff_Notification(models.Model):
         return self.staff_id.admin.first_name
 
 
+class Student_Notification(models.Model):
+    student_id = models.ForeignKey(Student, on_delete=models.CASCADE)
+    message = models.TextField()
+    create_at = models.DateTimeField(auto_now_add=True)
+    status = models.IntegerField(null=True,default=0)
+
+    def __str__(self):
+        return self.student_id.admin.first_name
+
+
 class Staff_leave(models.Model):
     staff_id = models.ForeignKey(Staff, on_delete=models.CASCADE)
     date = models.CharField(max_length=100)
@@ -95,8 +105,54 @@ class Staff_Feedback(models.Model):
     staff_id = models.ForeignKey(Staff, on_delete=models.CASCADE)
     feedback = models.TextField()
     feedback_reply = models.TextField()
+    status = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True,null=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.staff_id.admin.first_name + " " + self.staff_id.admin.last_name
+
+
+class Student_Feedback(models.Model):
+    student_id = models.ForeignKey(Student, on_delete=models.CASCADE)
+    feedback = models.TextField()
+    feedback_reply = models.TextField()
+    status = models.IntegerField(default=0)
+    created_at = models.DateTimeField(auto_now_add=True,null=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.student_id.admin.first_name + " " + self.student_id.admin.last_name
+
+
+class Student_leave(models.Model):
+    student_id = models.ForeignKey(Student, on_delete=models.CASCADE)
+    date = models.CharField(max_length=100)
+    message = models.TextField()
+    status = models.IntegerField(default=0)
+    created_at = models.DateTimeField(auto_now_add=True,null=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+
+    def __str__(self):
+        return self.student_id.admin.first_name + " " + self.student_id.admin.last_name
+
+
+class Attendance(models.Model):
+    subject_id = models.ForeignKey(Subject, on_delete=models.DO_NOTHING)
+    attendance_date = models.DateField()
+    session_year_id = models.ForeignKey(Session_Year, on_delete=models.DO_NOTHING)
+    created_at = models.DateTimeField(auto_now_add=True,null=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.subject_id.name
+
+class Attendance_Report(models.Model):
+    student_id = models.ForeignKey(Student, on_delete=models.DO_NOTHING)
+    attendance_id = models.ForeignKey(Attendance, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True,null=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.student_id.admin.first_name
