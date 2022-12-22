@@ -69,6 +69,8 @@ urlpatterns = [
     path('Hod/Student/Feedback',Hod_Views.STUDENT_FEEDBACK,name='student_feedback_reply'),
     path('Hod/Student/Feedback/ Save',Hod_Views.REPLY_STUDENT_FEEDBACK,name='reply_student_feedback'),
 
+    path('Hod/View/Attendance',Hod_Views.VIEW_ATTENDANCE,name='view_attendance'),
+
     # --------------------------Staff Penal Url --------------------------------
 
     path('Staff/home', Staff_Views.HOME, name='staff_home'),
@@ -84,6 +86,10 @@ urlpatterns = [
 
     path('Staff/Take_Attendance', Staff_Views.STAFF_TAKE_ATTENDANCE, name='staff_take_attendance'),
     path('Staff/Save_Attendance', Staff_Views.STAFF_SAVE_ATTENDANCE, name='staff_save_attendance'),
+    path('Staff/View_Attendance', Staff_Views.STAFF_VIEW_ATTENDANCE, name='staff_view_attendance'),
+
+    path('Staff/Add/Result', Staff_Views.STAFF_ADD_RESULT, name= 'staff_add_result'),
+    path('Staff/Save/Result', Staff_Views.STAFF_SAVE_RESULT, name= 'staff_save_result'),
 
  # --------------------------Student Penal Url --------------------------------
 
@@ -97,6 +103,10 @@ urlpatterns = [
 
     path('Student/Apply_leave', Student_Views.STUDENT_APPLY_LEAVE, name='student_apply_leave'),
     path('Student/Apply_leave_save', Student_Views.STUDENT_APPLY_LEAVE_SAVE, name='student_apply_leave_save'),
+
+    path('Student/View_Attendance', Student_Views.STUDENT_VIEW_ATTENDANCE, name='student_view_attendance'),
+
+    path('Student/View_Result', Student_Views.STUDENT_VIEW_RESULT, name='student_view_result'),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

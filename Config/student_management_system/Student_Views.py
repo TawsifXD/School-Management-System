@@ -1,7 +1,7 @@
 from django.contrib import messages
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
-from app.models import Student_Notification, Student, Student_Feedback, Student_leave
+from app.models import Student_Notification, Student, Student_Feedback, Student_leave, Subject, Attendance_Report, StudentResult
 
 @login_required(login_url='/')
 def HOME(request):
@@ -86,4 +86,45 @@ def STUDENT_APPLY_LEAVE_SAVE(request):
         leave.save()
         messages.success(request,"Your Request to leave has been successfully sent to Head of Department")
         return redirect('student_apply_leave')
-    return None
+
+
+
+def STUDENT_VIEW_ATTENDANCE(request):
+    student = Student.objects.get(admin = request.user.id) 
+    subject = Subject.objects.filter(course = student.course_id)
+
+    action = request.GET.get('action')
+    get_subject = None
+    attendance_report = None
+    if action is not None:
+        if request.method == "POST":
+            subject_id = request.POST.get('subject_id')
+            get_subject = Subject.objects.get(id = subject_id)
+
+            attendance_report = Attendance_Report.objects.filter(student_id = student, attendance_id__subject_id = subject_id)
+
+    context = {
+        'subject': subject,
+        'action': action,
+        'get_subject': get_subject,
+        'attendance_report': attendance_report,
+    }
+    return render(request, 'Student/view_attendance.html', context)
+
+
+def STUDENT_VIEW_RESULT(request):
+    mark = None
+    student = Student.objects.get(admin = request.user.id)
+
+    result = StudentResult.objects.filter(student_id = student)
+    for i in result:
+        assignment_mark = i.assignment_mark
+        exam_mark = i.exam_mark
+        mark = assignment_mark + exam_mark
+
+    context = {
+        'result': result,
+        'mark': mark,
+    }
+    return render(request, 'Student/view_result.html', context)
+

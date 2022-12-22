@@ -4,11 +4,13 @@
        <div id="sidebar-menu" class="sidebar-menu">
          {% if user.user_type == '1' %}
           <ul>
+            
              <li class="menu-title">
                 <span>Main Menu</span>
                 <li class={% active_link 'hod_home' 'active'%}>
                   <a href="{% url 'hod_home' %}"><i class="fas fa-house-user"></i> <span>Dashboard</span></a>
                </li>
+
              <li class="submenu {% active_link 'add_student' 'active'%} {% active_link 'view_student' 'active'%}" >
                 <a href="#"><i class="fas fa-user-graduate"></i> <span> Students</span> <span class="menu-arrow"></span></a>
                 <ul>
@@ -16,6 +18,7 @@
                    <li><a href="{% url 'view_student' %}">View Student</a></li>
                 </ul>
              </li>
+
              <li class="submenu {% active_link 'add_staff' 'active'%} {% active_link 'view_staff' 'active'%}">
                 <a href="#"><i class="fas fa-chalkboard-teacher"></i> <span> Staff</span> <span class="menu-arrow"></span></a>
                 <ul>
@@ -23,6 +26,7 @@
                    <li><a href="{% url 'view_staff' %}">View Staff</a></li>
                 </ul>
              </li>
+
              <li class="submenu {% active_link 'add_course' 'active'%} {% active_link 'view_course' 'active'%}">
                 <a href="#"><i class="fa fa-graduation-cap"></i> <span> Course</span> <span class="menu-arrow"></span></a>
                 <ul>
@@ -30,6 +34,7 @@
                    <li><a href="{% url 'view_course' %}">View Course</a></li>
                 </ul>
              </li>
+
              <li class="submenu {% active_link 'add_subject' 'active'%} {% active_link 'add_subject' 'active'%}">
                 <a href="#"><i class="fa fa-book-open"></i> <span> Subject</span> <span class="menu-arrow"></span></a>
                 <ul>
@@ -37,6 +42,7 @@
                    <li><a href="{% url 'view_subject' %}">View Subject</a></li>
                 </ul>
              </li>
+
              <li class="submenu {% active_link 'add_session' 'active'%} {% active_link 'view_session' 'active'%}">
                <a href="#"><i class="fa fa-book-open"></i> <span>Session</span> <span class="menu-arrow"></span></a>
                <ul>
@@ -44,25 +50,32 @@
                   <li><a href="{% url 'view_session' %}">View Session</a></li>
                </ul>
             </li>
-             <li>
+
+             <li class={% active_link 'staff_send_notification' 'active'%}>
                <a href="{% url 'staff_send_notification' %}"><i class="fa fa-bell"></i><span>Sent Staff Notification</span></a>
             </li>
-            <li>
+
+            <li class={% active_link 'student_send_notification' 'active'%}>
                <a href="{% url 'student_send_notification' %}"><i class="fa fa-bell"></i><span>Sent Student Notification</span></a>
             </li>
-            <li>
-               <a href="holiday.html"><i class="fa fa-calendar"></i> <span>View Attendens</span></a>
+
+            <li class={% active_link 'view_attendance' 'active'%}>
+               <a href="{% url 'view_attendance' %}"><i class="fa fa-calendar"></i> <span>View Attendens</span></a>
             </li>
-            <li>
+
+            <li class={% active_link 'staff_feedback_reply' 'active'%}>
                <a href="{% url 'staff_feedback_reply' %}"><i class="fa fa-comments"></i> <span>Staff Fedback</span></a>
             </li>
-            <li>
+
+            <li class={% active_link 'student_feedback_reply' 'active'%}>
                <a href="{% url 'student_feedback_reply' %}"><i class="fa fa-comments"></i> <span>Student Fedback</span></a>
             </li>
-            <li>
+            
+            <li class={% active_link 'staff_leave_view' 'active'%}>
                <a href="{% url 'staff_leave_view' %}"><i class="fas fa-envelope"></i> <span>Staff Leave</span></a>
             </li>
-            <li>
+
+            <li class={% active_link 'student_leave_view' 'active'%}>
                <a href="{% url 'student_leave_view' %}"><i class="fas fa-envelope"></i> <span>Student Leave</span></a>
             </li>
             <li>
@@ -83,12 +96,12 @@
                  <a href="{% url 'staff_take_attendance' %}"><i class="fas fa-calendar"></i> <span>Take Attendens</span></a>
               </li>
 
-               <li class={% active_link '' 'active'%}>
-                 <a href="{% url 'hod_home' %}"><i class="fas fa-calendar-alt"></i> <span>View / Update Attendens</span></a>
+               <li class={% active_link 'staff_view_attendance' 'active'%}>
+                 <a href="{% url 'staff_view_attendance' %}"><i class="fas fa-calendar-alt"></i> <span>View / Update Attendens</span></a>
               </li>
             
-               <li class={% active_link '' 'active'%}>
-                 <a href="{% url 'hod_home' %}"><i class="fas fa-poll-h"></i> <span>Add Result</span></a>
+               <li class={% active_link 'staff_add_result' 'active'%}>
+                 <a href="{% url 'staff_add_result' %}"><i class="fas fa-poll-h"></i> <span>Add Result</span></a>
                </li>
             
                <li class={% active_link 'staff_apply_leave' 'active'%}>
@@ -118,12 +131,12 @@
               </li>
             </li>
 
-               <li class={% active_link '' 'active'%}>
-                  <a href="{% url 'hod_home' %}"><i class="fas fa-calendar-alt"></i> <span>View / Update Attendens</span></a>
+               <li class={% active_link 'student_view_attendance' 'active'%}>
+                  <a href="{% url 'student_view_attendance' %}"><i class="fas fa-calendar-alt"></i> <span>View Attendens</span></a>
                </li>
 
-               <li class={% active_link '' 'active'%}>
-                 <a href=""><i class="fas fa-poll"></i> <span>View Result</span></a>
+               <li class={% active_link 'student_view_result' 'active'%}>
+                 <a href="{% url 'student_view_result' %}"><i class="fas fa-poll"></i> <span>View Result</span></a>
               </li>
 
                <li class={% active_link 'student_apply_leave' 'active'%}>

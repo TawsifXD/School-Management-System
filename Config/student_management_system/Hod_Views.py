@@ -1,7 +1,7 @@
 from django.contrib import messages
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
-from app.models import Course, Session_Year, CustomUser, Student, Staff, Subject,Staff_Notification, Staff_leave, Staff_Feedback, Student_Notification, Student_Feedback, Student_leave
+from app.models import Course, Session_Year, CustomUser, Student, Staff, Subject,Staff_Notification, Staff_leave, Staff_Feedback, Student_Notification, Student_Feedback, Student_leave, Attendance, Attendance_Report
 
 # ----------------------------------Login Filed ------------------------------
 
@@ -650,3 +650,37 @@ def STUDENT_DISAPPROVE_LEAVE(request,id):
     leave.save()
     
     return redirect('student_leave_view')
+
+
+def VIEW_ATTENDANCE(request):
+    subject = Subject.objects.all()
+    session_year = Session_Year.objects.all()
+
+    action = request.GET.get('action')
+    get_subject = None
+    get_session_year = None
+    attendance_date = None
+    attendance_report = None
+    if action is not None:
+        if request.method == "POST":
+            subject_id = request.POST.get('subject_id')
+            session_year_id = request.POST.get('session_year_id')
+            attendance_date = request.POST.get('attendance_date')
+
+            get_subject = Subject.objects.get(id = subject_id)
+            get_session_year = Session_Year.objects.get(id = session_year_id)
+            attendance = Attendance.objects.filter(subject_id = get_subject, attendance_date = attendance_date)
+            for i in attendance:
+                attendance_id = i.id
+                attendance_report = Attendance_Report.objects.filter(attendance_id = attendance_id)
+
+    context = {
+        'subject': subject,
+        'session_year': session_year,
+        'action': action,
+        'get_subject': get_subject,
+        'get_session_year': get_session_year,
+        'attendance_date': attendance_date,
+        'attendance_report': attendance_report,
+    }
+    return render(request, 'Hod/view_attendance.html', context)

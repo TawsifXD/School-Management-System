@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="content container-fluid">
+    <div class="page-header">
+       <div class="row align-items-center">
+          <div class="col">
+             <h3 class="page-title">View Result</h3>
+             <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'hod_home' %}">Dashboard</a></li>
+                <li class="breadcrumb-item active">Result</li>
+             </ul>
+          </div>
+          
+          <div class="col-auto text-right float-right ml-auto">
+             <a href="{% url 'add_subject' %}" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+          </div>
+       </div>
+    </div>
+    {% include 'includes/messages.html' %}
+    <div class="row">
+       <div class="col-sm-12">
+          <div class="card card-table">
+             <div class="card-body">
+                <div class="table-responsive">
+                   <table id="table_id" class="table table-hover table-center mb-0">
+                      <thead>
+                         <tr>
+                            <th>ID</th>
+                            <th>Subject</th>
+                            <th>Assinment Mark </th>
+                            <th>Exam Mark</th>
+                            <th class="text-right">Status</th>
+                         </tr>
+                      </thead>
+                      <tbody>
+                        {% for i in result %}
+                         <tr>
+                            <td>{{i.id}}</td>
+                            <td>{{i.subject_id.name}}</td>
+                            <td>{{i.assignment_mark}}</td>
+                            <td>{{i.exam_mark}}</td>
+                            <td class="text-right">
+                               {% if mark >= 50 %}
+                               <span class="badge badge-success">PASS</span>
+                               {% else %}
+                               <span class="badge badge-danger">FAIL</span>
+                               {% endif %}
+                            </td>
+                         </tr>
+                         {% endfor %}
+                      </tbody>
+                   </table>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+{% endblock content %}
