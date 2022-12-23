@@ -182,6 +182,9 @@ def ADD_COURSE(request):
         )
         course.save()
         messages.success(request,'Course Are Successfully Created ')
+        return redirect('view_course')
+        
+        
 
     return render(request,'Hod/add_course.html')
 
@@ -651,7 +654,7 @@ def STUDENT_DISAPPROVE_LEAVE(request,id):
     
     return redirect('student_leave_view')
 
-
+@login_required(login_url='/')
 def VIEW_ATTENDANCE(request):
     subject = Subject.objects.all()
     session_year = Session_Year.objects.all()

@@ -8,7 +8,7 @@
              <li class="menu-title">
                 <span>Main Menu</span>
                 <li class={% active_link 'hod_home' 'active'%}>
-                  <a href="{% url 'hod_home' %}"><i class="fas fa-house-user"></i> <span>Dashboard</span></a>
+                  <a href="{% url 'hod_home' %}"><i class="fas fa-house-user "></i> <span>Dashboard</span></a>
                </li>
 
              <li class="submenu {% active_link 'add_student' 'active'%} {% active_link 'view_student' 'active'%}" >
@@ -78,7 +78,7 @@
             <li class={% active_link 'student_leave_view' 'active'%}>
                <a href="{% url 'student_leave_view' %}"><i class="fas fa-envelope"></i> <span>Student Leave</span></a>
             </li>
-            <li>
+            <li class={% active_link 'Logout' 'active'%}>
                <a href="{% url 'Logout' %}"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
             </li>
           </ul>
@@ -87,8 +87,8 @@
          <ul>
             <li class="menu-title">
                <span>Main Menu</span>
-               <li class={% active_link '' 'active'%}>
-                 <a href="{% url 'hod_home' %}"><i class="fas fa-house-user"></i> <span>Dashboard</span></a>
+               <li class={% active_link 'staff_home' 'active'%}>
+                 <a href="{% url 'staff_home' %}"><i class="fas fa-house-user"></i> <span>Dashboard</span></a>
               </li>
             </li>
             
@@ -147,8 +147,8 @@
                  <a href="{% url 'student_feedback' %}"><i class="fas fa-comments"></i> <span>Send Feedback </span></a>
                </li>
             
-               <li class={% active_link 'notifications' 'active'%}>
-                 <a href="{% url 'notifications' %}"><i class="fas fa-bell"></i> <span>Notification</span></a>
+               <li class={% active_link 'student_notifications' 'active'%}>
+                 <a href="{% url 'student_notifications' %}"><i class="fas fa-bell"></i> <span>Notification</span></a>
               </li>
 
                <li>

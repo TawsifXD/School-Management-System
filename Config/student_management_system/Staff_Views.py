@@ -1,11 +1,27 @@
 from django.contrib import messages
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
-from app.models import Staff, Staff_Notification, Staff_leave, Staff_Feedback, Subject, Session_Year, Student, Attendance, Attendance_Report, StudentResult
+from app.models import Staff, Course, Staff_Notification, Staff_leave, Staff_Feedback, Subject, Session_Year, Student, Attendance, Attendance_Report, StudentResult
 
 @login_required(login_url='/')
 def HOME(request):
-    return render(request, 'Staff/home.html')
+    student_count = Student.objects.all().count()
+    staff_count = Staff.objects.all().count()
+    course_count = Course.objects.all().count()
+    subject_count = Subject.objects.all().count()
+
+    student_gender_male = Student.objects.filter(gender = 'Male').count()
+    student_gender_female = Student.objects.filter(gender = 'Female').count()
+
+    context = {
+        'student_count': student_count,
+        'staff_count': staff_count,
+        'course_count': course_count,
+        'subject_count': subject_count,
+        'student_gender_male': student_gender_male,
+        'student_gender_female': student_gender_female,
+    }
+    return render(request, 'Staff/home.html', context)
 
 @login_required(login_url='/')
 def NOTIFICATIONS(request):
@@ -226,7 +242,6 @@ def STAFF_ADD_RESULT(request):
 def STAFF_SAVE_RESULT(request):
     if request.method == "POST":
         subject_id = request.POST.get('subject_id')
-        session_year_id = request.POST.get('session_year_id')
         student_id = request.POST.get('student_id')
         assignment_mark = request.POST.get('assignment_mark')
         Exam_mark = request.POST.get('Exam_mark')

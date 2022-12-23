@@ -55,6 +55,7 @@ def STUDENT_FEEDBACK_SAVE(request):
             feedback_reply = "",
         )
         feedback.save()
+        messages.success(request,"Feedback Successfully Send")
         return redirect('student_feedback')
 
 

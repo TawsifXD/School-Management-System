@@ -95,7 +95,7 @@ urlpatterns = [
 
     path('Student/Home', Student_Views.HOME, name='student_home'),
 
-    path('Student/Notifications', Student_Views.NOTIFICATIONS, name='notifications'),
+    path('Student/Notifications', Student_Views.NOTIFICATIONS, name='student_notifications'),
     path('Student/Mark_as_done/<str:status>', Student_Views.STUDENT_NOTIFICATION_DONE, name='student_notification_done'),
 
     path('Student/Feedback', Student_Views.STUDENT_FEEDBACK, name='student_feedback'),
