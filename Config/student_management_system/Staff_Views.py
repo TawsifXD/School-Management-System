@@ -105,6 +105,7 @@ def STAFF_FEEDBACK_SAVE(request):
     return redirect('staff_feedback')
 
 
+@login_required(login_url='/')
 def STAFF_TAKE_ATTENDANCE(request):
     staff_id = Staff.objects.get(admin = request.user.id)
 
@@ -137,6 +138,7 @@ def STAFF_TAKE_ATTENDANCE(request):
     return render(request, 'Staff/take_attendance.html', context)
 
 
+@login_required(login_url='/')
 def STAFF_SAVE_ATTENDANCE(request):
     if request.method == "POST":
         subject_id = request.POST.get('subject_id')
@@ -168,6 +170,7 @@ def STAFF_SAVE_ATTENDANCE(request):
     return redirect('staff_take_attendance')
 
 
+@login_required(login_url='/')
 def STAFF_VIEW_ATTENDANCE(request):
     staff_id = Staff.objects.get(admin = request.user.id)
 
@@ -204,7 +207,7 @@ def STAFF_VIEW_ATTENDANCE(request):
     return render(request, 'Staff/view_attendance.html', context)
 
 
-
+@login_required(login_url='/')
 def STAFF_ADD_RESULT(request):
     staff = Staff.objects.get(admin = request.user.id)
 
@@ -239,6 +242,7 @@ def STAFF_ADD_RESULT(request):
     return render(request, 'Staff/add_result.html', context)
 
 
+@login_required(login_url='/')
 def STAFF_SAVE_RESULT(request):
     if request.method == "POST":
         subject_id = request.POST.get('subject_id')

@@ -89,7 +89,7 @@ def STUDENT_APPLY_LEAVE_SAVE(request):
         return redirect('student_apply_leave')
 
 
-
+@login_required(login_url='/')
 def STUDENT_VIEW_ATTENDANCE(request):
     student = Student.objects.get(admin = request.user.id) 
     subject = Subject.objects.filter(course = student.course_id)
@@ -113,6 +113,7 @@ def STUDENT_VIEW_ATTENDANCE(request):
     return render(request, 'Student/view_attendance.html', context)
 
 
+@login_required(login_url='/')
 def STUDENT_VIEW_RESULT(request):
     mark = None
     student = Student.objects.get(admin = request.user.id)
