@@ -29,6 +29,7 @@ Version      : 1.0
 20. Teacher Dashboard
 21. Student Dashboard
 22. Responsive
+23. Contener
 
 ========================================*/
 
@@ -1797,11 +1798,7 @@ footer p {
 	11. Content
 -----------------------*/
 
-.main-wrapper {
-	width: 100%;
-	height: 100vh;
-	min-height: 100vh;
-}
+
 .page-wrapper {
 	margin-left: 320px;
 	padding-top: 60px;
@@ -1836,51 +1833,12 @@ footer p {
 	12. Login
 -----------------------*/
 
-.login-body {
-    display: table;
-    height: 100vh;
-    min-height: 100vh;
-}
-.login-wrapper {
-	width: 100%;
-	height: 100%;
-	display: table-cell;
-	vertical-align: middle;
-}
-.login-wrapper .loginbox {
-    background-color: #fff;
-    border-radius: 6px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	display: flex;
-    margin: 1.875rem auto;
-    max-width: 800px;
-    min-height: 500px;
-    width: 100%;
-}
-.login-wrapper .loginbox .login-left {
-    align-items: center;
-    background: #18aefa;
-    background-image: url(../img/login.jpg);
-    border-radius: 6px 0 0 6px;
-    flex-direction: column;
-    justify-content: center;
-    padding: 80px;
-    width: 400px;
-    display: flex;
-    background-blend-mode: multiply;
-}
-.login-wrapper .loginbox .login-right {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    padding: 40px;
-    width: 400px;
-}
-.login-wrapper .loginbox .login-right .login-right-wrap {
-    max-width: 100%;
-    flex: 0 0 100%;
-}
-.login-wrapper .loginbox .login-right h1 {
+
+
+
+
+
+h1 {
     font-size: 26px;
     font-weight: 500;
     margin-bottom: 5px;
@@ -1892,21 +1850,21 @@ footer p {
     margin-bottom: 1.875rem;
     text-align: center;
 }
-.login-wrapper .loginbox .login-right .forgotpass a {
+.forgotpass a {
 	color: #a0a0a0;
 }
-.login-wrapper .loginbox .login-right .forgotpass a:hover {
+.forgotpass a:hover {
 	color: #333;
 	text-decoration: underline;
 }
-.login-wrapper .loginbox .login-right .dont-have {
+.dont-have {
 	color: #a0a0a0;
 	margin-top: 1.875rem;
 }
-.login-wrapper .loginbox .login-right .dont-have a {
+.dont-have a {
 	color: #333;
 }
-.login-wrapper .loginbox .login-right .dont-have a:hover {
+.dont-have a:hover {
 	text-decoration: underline;
 }
 .social-login {
@@ -2578,7 +2536,7 @@ table.table-inbox tbody tr.checked {
     color: #1f1f1f;
     display: flex;
 }
-.error-page .main-wrapper {
+.error-page{
     display: flex;
     flex-wrap: wrap;
     height: auto;
@@ -3171,14 +3129,7 @@ table.table-inbox tbody tr.checked {
 	.top-nav-search {
 		display: none;
 	}
-	.login-wrapper .loginbox .login-left {
-		padding: 80px 50px;
-		width: 50%;
-	}
-	.login-wrapper .loginbox .login-right {
-		padding: 50px;
-		width: 50%;
-	}
+
 	.sidebar {
 		margin-left: -225px;
 		width: 225px;
@@ -3285,18 +3236,8 @@ table.table-inbox tbody tr.checked {
 		-webkit-transform: translateX(-50%);
 		-ms-transform: translateX(-50%);
 	}
-	.login-wrapper .loginbox .login-left {
-		display: none;
-	}
-	.login-wrapper .loginbox {
-		max-width: 450px;
-		min-height: unset;
-	}
-	.login-wrapper .loginbox .login-right {
-		float: none;
-		padding: 1.875rem;
-		width: 100%;
-	}
+	
+	
 	.left-action {
 		text-align: center;
 		margin-bottom: 15px;
@@ -3332,7 +3273,7 @@ table.table-inbox tbody tr.checked {
 	.product_price {
 		font-size: 1.5rem;
 	}
-	.login-wrapper .loginbox .login-right h1 {
+	h1 {
 		font-size: 22px;
 	}
 	.error-box h1 {
@@ -3466,3 +3407,40 @@ table.table-inbox tbody tr.checked {
 }
 
 
+/*-----------------
+	23. Contener
+-----------------------*/
+
+#particles-js
+        {
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+        }
+        .container
+        {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            background-color: #ffffff00;
+            border-radius: 15px;
+            box-shadow: 0px 0px 30px rgb(209, 198, 198);
+        }
+        .container form{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .container h1{
+            font-size: 30px;
+            margin: 30px;
+            color: rgb(31, 30, 30);
+        }
+        .container input{
+            margin-bottom:10px ;
+            font-size: 15px;
+			background-color: #ffffff00;
+        }

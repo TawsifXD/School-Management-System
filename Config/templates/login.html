@@ -2,63 +2,58 @@
 <!DOCTYPE html>
 <html lang="en">
    <!-- Mirrored from preschool.dreamguystech.com/html-template/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Oct 2021 11:11:39 GMT -->
-   <head>
+<head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-      <title>Preskool - Login</title>
+      <title>Spirit School</title>
       <link rel="shortcut icon" href="{% static 'assets/img/favicons.png' %}">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;0,700;1,400&amp;display=swap">
       <link rel="stylesheet" href="{% static 'assets/plugins/bootstrap/css/bootstrap.min.css' %}">
       <link rel="stylesheet" href="{% static 'assets/plugins/fontawesome/css/fontawesome.min.css' %}">
       <link rel="stylesheet" href="{% static 'assets/plugins/fontawesome/css/all.min.css' %}">
       <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
-   </head>
-   <body>
-      <div class="main-wrapper login-body">
-         <div class="login-wrapper">
-            <div class="container">
-               <div class="loginbox">
-                  <div class="login-left">
-                     <img class="img-fluid" src="{% static 'assets/img/login_log.gif' %}" alt="Logo">
-                  </div>
-                  <div class="login-right">
-                     <div class="login-right-wrap">
-                        <h1>Login</h1>
-                        <p class="account-subtitle">Access to our dashboard</p>
-                        <form action="{% url 'doLogin' %}" method="post">
-                           {% csrf_token %}
-                           <div class="form-group">
-                              <input class="form-control" type="text" placeholder="Email" name="email">
-                           </div>
-                           <div class="form-group">
-                              <input class="form-control" type="password" placeholder="Password" name="password">
-                           </div>
-                           {% if messages %}
-                           {% for message in messages %}
-                           {% if message.tags == 'error' %}
-                           <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                              {{message}}
-                              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
-                            </div>
-                            {% endif %}
-                            {% endfor %}
-                            {% endif %}
-                           <div class="form-group">
-                              <button class="btn btn-primary btn-block" type="submit">Login</button>
-                           </div>
-                        </form>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
+</head>
+<body>    
+<section>
+    <div id="particles-js">
+        <div class="container">
+            <form action="{% url 'doLogin' %}" method="post">
+                <h1>Login</h1>
+                <p class="account-subtitle">Access to our dashboard</p>
+                {% csrf_token %}
+                <div class="form-group">
+                    <input class="form-control" type="text" placeholder="Email" name="email">
+                    </div>
+                <div class="form-group">
+                    <input class="form-control" type="password" placeholder="Password" name="password">
+                </div>
+                    {% if messages %}
+                    {% for message in messages %}
+                    {% if message.tags == 'error' %}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    {{message}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                    {% endif %}
+                    {% endfor %}
+                    {% endif %}
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block" type="submit">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
       <script src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
       <script src="{% static 'assets/js/popper.min.js' %}"></script>
       <script src="{% static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
       <script src="{% static 'assets/js/script.js' %}"></script>
-   </body>
+      <script src="{% static 'assets/js/particle.js' %}"></script>
+      <script>
+        particlesJS("particles-js", {"particles":{"number":{"value":150,"density":{"enable":true,"value_area":1000}},"color":{"value":"#ffa800"},"shape":{"type":"circle","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":6},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":1,"random":false,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":5.5,"random":true,"anim":{"enable":false,"speed":40,"size_min":0.1,"sync":false}},"line_linked":{"enable":true,"distance":150,"color":"#ffa500","opacity":0.4,"width":1.5783700172831523},"move":{"enable":true,"speed":6,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"grab"},"onclick":{"enable":true,"mode":"push"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true});var count_particles, stats, update; stats = new Stats; stats.setMode(0); stats.domElement.style.position = 'absolute'; stats.domElement.style.left = '0px'; stats.domElement.style.top = '0px'; document.body.appendChild(stats.domElement); count_particles = document.querySelector('.js-count-particles'); update = function() { stats.begin(); stats.end(); if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) { count_particles.innerText = window.pJSDom[0].pJS.particles.array.length; } requestAnimationFrame(update); }; requestAnimationFrame(update);;
+     </script>
+</section>
+</body>
    <!-- Mirrored from preschool.dreamguystech.com/html-template/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Oct 2021 11:11:40 GMT -->
 </html>
