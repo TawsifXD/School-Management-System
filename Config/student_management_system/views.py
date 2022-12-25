@@ -5,6 +5,23 @@ from django.shortcuts import render,redirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, logout, login
 
+
+
+# -------------------------------Website only--------------------------
+def HOME(request):
+    return render(request, 'Website/websiteindex.html')
+
+def ABOUT(request):
+    return render(request, 'Website/about.html')
+
+def COURSE(request):
+    return render(request, 'Website/course.html')
+
+def CONTACT(request):
+    return render(request, 'Website/contact.html')
+
+# -------------------------Dashbord Only -----------------------------
+
 def BASE(request):
     return render (request, 'base.html')
 
@@ -34,7 +51,7 @@ def doLogin(request):
 
 def doLogout(request):
     logout(request)
-    return redirect('login')
+    return redirect('home')
 
 
 # Profile 

@@ -5,17 +5,25 @@ from django.conf.urls.static import static
 from .import views, Staff_Views, Hod_Views, Student_Views
 
 urlpatterns = [
+
+    # --------------------------Website Links---------------------------
+    path('', views.HOME, name='home'),
+    path('about/', views.ABOUT, name='about'),
+    path('course/', views.COURSE, name='course'),
+    path('contact/', views.CONTACT, name='contact'),
+
+    # ----------------------------DashBord Links-------------------------
     path('admin', admin.site.urls),
     path('base/', views.BASE, name='base'),
 
     # Login From
-    path('', views.LOGIN, name='login'),
-    path('dologin', views.doLogin, name='doLogin'),
-    path('dologout', views.doLogout, name='Logout'),
+    path('Login', views.LOGIN, name='login'),
+    path('Dologin', views.doLogin, name='doLogin'),
+    path('Dologout', views.doLogout, name='Logout'),
 
     # Profile Update
-    path('profile', views.PROFILE, name= 'profile'),
-    path('profile/update', views.PROFILE_UPDATE, name='profile_update'),
+    path('Profile', views.PROFILE, name= 'profile'),
+    path('Profile/update', views.PROFILE_UPDATE, name='profile_update'),
 
     # Head Of Department Penal Url
     path('Hod/home', Hod_Views.HOME, name='hod_home'),
