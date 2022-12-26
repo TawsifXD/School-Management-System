@@ -4,12 +4,24 @@ from app.EmailBackEnd import EmailBackEnd
 from django.shortcuts import render,redirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, logout, login
+from app.models import Staff, Student, Course, Subject
 
 
 
 # -------------------------------Website only--------------------------
 def HOME(request):
-    return render(request, 'Website/websiteindex.html')
+    student_count = Student.objects.all().count()
+    staff_count = Staff.objects.all().count()
+    course_count = Course.objects.all().count()
+    subject_count = Subject.objects.all().count()
+
+    context = {
+        'student_count': student_count,
+        'staff_count': staff_count,
+        'course_count': course_count,
+        'subject_count': subject_count,
+    }
+    return render(request, 'Website/index.html', context)
 
 def ABOUT(request):
     return render(request, 'Website/about.html')

@@ -1,4 +1,4 @@
-{% extends 'Website/websitebase.html' %}
+{% extends 'Website/base.html' %}
 {% load static %}
 {% block content %}
 <!-- Header Start -->
@@ -32,29 +32,34 @@
                 <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">About Us</h6>
                 <h1 class="display-4">First Choice For Online Education Anywhere</h1>
             </div>
-            <p>Tempor erat elitr at rebum at at clita aliquyam consetetur. Diam dolor diam ipsum et, tempor voluptua sit consetetur sit. Aliquyam diam amet diam et eos sadipscing labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor consetetur takimata eirmod, dolores takimata consetetur invidunt magna dolores aliquyam dolores dolore. Amet erat amet et magna</p>
+            <p>
+                Online education has become increasingly popular in recent years, as more and more people are turning to the internet to gain knowledge and skills.
+                Online education offers a variety of advantages, including convenience, flexibility, and cost savings.
+                Convenience is one of the biggest advantages of online education. Students can access course materials and lectures from anywhere in the world, at any time. This makes it easier for students to fit their studies into their busy schedules.
+                Additionally, online courses often offer more flexibility
+            </p>
             <div class="row pt-3 mx-0">
                 <div class="col-3 px-0">
                     <div class="bg-success text-center p-4">
-                        <h1 class="text-white" data-toggle="counter-up">123</h1>
+                        <h1 class="text-white" data-toggle="counter-up">{{subject_count}}</h1>
                         <h6 class="text-uppercase text-white">Available<span class="d-block">Subjects</span></h6>
                     </div>
                 </div>
                 <div class="col-3 px-0">
                     <div class="bg-primary text-center p-4">
-                        <h1 class="text-white" data-toggle="counter-up">1234</h1>
+                        <h1 class="text-white" data-toggle="counter-up">{{course_count}}</h1>
                         <h6 class="text-uppercase text-white">Online<span class="d-block">Courses</span></h6>
                     </div>
                 </div>
                 <div class="col-3 px-0">
                     <div class="bg-secondary text-center p-4">
-                        <h1 class="text-white" data-toggle="counter-up">123</h1>
-                        <h6 class="text-uppercase text-white">Skilled<span class="d-block">Instructors</span></h6>
+                        <h1 class="text-white" data-toggle="counter-up">{{staff_count}}</h1>
+                        <h6 class="text-uppercase text-white">Skilled<span class="d-block">Staff</span></h6>
                     </div>
                 </div>
                 <div class="col-3 px-0">
                     <div class="bg-warning text-center p-4">
-                        <h1 class="text-white" data-toggle="counter-up">1234</h1>
+                        <h1 class="text-white" data-toggle="counter-up">{{student_count}}</h1>
                         <h6 class="text-uppercase text-white">Happy<span class="d-block">Students</span></h6>
                     </div>
                 </div>
@@ -75,14 +80,19 @@
                 <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Why Choose Us?</h6>
                 <h1 class="display-4">Why You Should Start Learning with Us?</h1>
             </div>
-            <p class="mb-4 pb-2">Aliquyam accusam clita nonumy ipsum sit sea clita ipsum clita, ipsum dolores amet voluptua duo dolores et sit ipsum rebum, sadipscing et erat eirmod diam kasd labore clita est. Diam sanctus gubergren sit rebum clita amet.</p>
+            <p class="mb-4 pb-2">
+                
+            1. We offer comprehensive and up-to-date learning materials. Our courses are designed to provide you with the most up-to-date information and resources to help you succeed in your learning journey.</p>
+            <p class="mb-4 pb-2">2. We have experienced and knowledgeable instructors who are passionate about teaching and helping you reach your goals. Our instructors have years of experience in their respective fields and are committed to helping you learn and grow.</p>
+            <p class="mb-4 pb-2">3. We provide a supportive learning environment. Our courses are designed. </p>
+            
             <div class="d-flex mb-3">
                 <div class="btn-icon bg-primary mr-4">
                     <i class="fa fa-2x fa-graduation-cap text-white"></i>
                 </div>
                 <div class="mt-n1">
-                    <h4>Skilled Instructors</h4>
-                    <p>Labore rebum duo est Sit dolore eos sit tempor eos stet, vero vero clita magna kasd no nonumy et eos dolor magna ipsum.</p>
+                    <h4>Skilled Staff</h4>
+                    <p>Skilled staff are employees who have the knowledge, experience, and training to perform their job duties effectively. They are often highly sought after by employers because they can help a business reach its goals more quickly and efficiently. Skilled staff can be found in a variety of industries, from healthcare to manufacturing.</p>
                 </div>
             </div>
             <div class="d-flex mb-3">
@@ -91,7 +101,8 @@
                 </div>
                 <div class="mt-n1">
                     <h4>International Certificate</h4>
-                    <p>Labore rebum duo est Sit dolore eos sit tempor eos stet, vero vero clita magna kasd no nonumy et eos dolor magna ipsum.</p>
+                    <p>An International Certificate is a document that is issued by an international organization or institution to certify that an individual has achieved a certain level of proficiency in a particular field or subject. This certificate is usually recognized by other countries and organizations as proof of the individual's qualifications.
+                    </p>
                 </div>
             </div>
             <div class="d-flex">
@@ -100,7 +111,7 @@
                 </div>
                 <div class="mt-n1">
                     <h4>Online Classes</h4>
-                    <p class="m-0">Labore rebum duo est Sit dolore eos sit tempor eos stet, vero vero clita magna kasd no nonumy et eos dolor magna ipsum.</p>
+                    <p class="m-0">Online classes are becoming increasingly popular as technology advances and more people are able to access the internet. Online classes offer a convenient and flexible way to learn, allowing students to study from anywhere in the world.</p>
                 </div>
             </div>
         </div>
@@ -122,31 +133,40 @@
         <div class="col-lg-5 mb-5 mb-lg-0">
             <div class="section-title position-relative mb-4">
                 <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Testimonial</h6>
-                <h1 class="display-4">What Say Our Students</h1>
+                <h1 class="display-4">Famous quote from scientist</h1>
             </div>
-            <p class="m-0">Dolor est dolores et nonumy sit labore dolores est sed rebum amet, justo duo ipsum sanctus dolore magna rebum sit et. Diam lorem ea sea at. Nonumy et at at sed justo est nonumy tempor. Vero sea ea eirmod, elitr ea amet diam ipsum at amet. Erat sed stet eos ipsum diam</p>
+            <p class="m-0">
+                "The only thing we have to fear is fear itself" 
+                
+                This famous quote is attributed to Franklin D. Roosevelt and was part of his first inaugural address in 1933. It is a reminder that fear can be a powerful emotion that can prevent us from achieving our goals and living our best lives.</p>
         </div>
         <div class="col-lg-7">
             <div class="owl-carousel testimonial-carousel">
                 <div class="bg-white p-5">
                     <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                    <p>Sed et elitr ipsum labore dolor diam, ipsum duo vero sed sit est est ipsum eos clita est ipsum. Est nonumy tempor at kasd. Sed at dolor duo ut dolor, et justo erat dolor magna sed stet amet elitr duo lorem</p>
+                    <p>1. “Imagination is more important than knowledge. Knowledge is limited. Imagination encircles the world.”</p>
+                    <p>2. “The world is a dangerous place to live; not because of the people who are evil, but because of the people who don't do anything about it.”</p>
+                    <p>3. “In the middle of difficulty lies opportunity.”</p>
+                    <p>4. “A person who never made a mistake never tried anything new.”</p>
                     <div class="d-flex flex-shrink-0 align-items-center mt-4">
                         <img class="img-fluid mr-4" src=" {% static 'website/assets/img/testimonial-2.jpg' %}" alt="">
                         <div>
-                            <h5>Student Name</h5>
-                            <span>Web Design</span>
+                            <h5>Albert Einstein</h5>
+                            <span>Scientist</span>
                         </div>
                     </div>
                 </div>
                 <div class="bg-white p-5">
                     <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                    <p>Sed et elitr ipsum labore dolor diam, ipsum duo vero sed sit est est ipsum eos clita est ipsum. Est nonumy tempor at kasd. Sed at dolor duo ut dolor, et justo erat dolor magna sed stet amet elitr duo lorem</p>
+                    <p>1. “Intelligence is the ability to adapt to change.”</p>
+                    <p>2. “However difficult life may seem, there is always something you can do and succeed at.”</p>
+                    <p>3. “We are just an advanced breed of monkeys on a minor planet of a very average star. But we can understand the Universe. That makes us something very special.”</p>
+                    <p>4. “The greatest enemy of knowledge is not ignorance, it is the illusion of knowledge.</p>
                     <div class="d-flex flex-shrink-0 align-items-center mt-4">
                         <img class="img-fluid mr-4" src=" {% static 'website/assets/img/testimonial-1.jpg' %}" alt="">
                         <div>
-                            <h5>Student Name</h5>
-                            <span>Web Design</span>
+                            <h5>Stephen Hawking </h5>
+                            <span>Scientist</span>
                         </div>
                     </div>
                 </div>
