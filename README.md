@@ -1,4 +1,4 @@
-# School Management System
+# School Management Project 
 A school management project in Django would involve creating a web application that helps manage various aspects of a school, such as student enrollment, class schedules, teacher assignments, and grades.
 
 
