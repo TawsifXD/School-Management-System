@@ -57,5 +57,11 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 Please make sure to update tests as appropriate.
 
+# Home Page
+![Screenshot 2022-12-26 203635](https://user-images.githubusercontent.com/55915722/209559479-3051517a-df8a-40d7-9993-0016ad1f2014.png)
+
+# Login Dashbord
+![Screenshot 2022-12-26 203611](https://user-images.githubusercontent.com/55915722/209559472-6a4addda-9f3d-4d7a-85e7-e335accebd6c.png)
+
 # License
 [MIT](https://github.com/TawsifXD/School-Management-System/blob/master/LICENSE).
