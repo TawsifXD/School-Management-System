@@ -15,7 +15,8 @@ python -m venv env
 
 **command to active envarmant**
 ``` 
-cd env/scripts/activate
+.\env\Scripts\activate
+
 ```
 
 4. Install requirements packege
