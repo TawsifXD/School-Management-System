@@ -25,19 +25,24 @@ python -m venv env
 pip install -r requirements.txt
 ```
 
-5. Then just Migrate the project
+5.After install
+**Go to project file**
+``` 
+cd Config
+```
+6. Then just Migrate the project
 
 **command to migrate**
 ```
 python manage.py migrate
 ```
-6. create a superuser
+7. create a superuser
 **command to create a superuser**
 ```
 python manage.py createsuperuser
 ```
 
-7. Then run the project 
+8. Then run the project 
 ```
 python manage.py runserver
 ```
